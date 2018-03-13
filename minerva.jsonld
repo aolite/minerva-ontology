@@ -1,15 +1,29 @@
 {
-  "@id" : "https://w3id.org/minerva",
-  "@type" : "owl:Ontology",
-  "imports" : "http://www.w3.org/2003/01/geo/wgs84_pos",
-  "versionInfo" : "Created with TopBraid Composer",
+  "@graph" : [ {
+    "@id" : "https://w3id.org/minerva",
+    "@type" : "owl:Ontology",
+    "imports" : "http://www.w3.org/2003/01/geo/wgs84_pos",
+    "versionInfo" : "Created with TopBraid Composer"
+  }, {
+    "@id" : "minerva:Device",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:PhysicalObject"
+  }, {
+    "@id" : "minerva:PhysicalObject",
+    "@type" : "owl:Class",
+    "subClassOf" : "owl:Thing"
+  } ],
   "@context" : {
-    "imports" : {
-      "@id" : "http://www.w3.org/2002/07/owl#imports",
+    "subClassOf" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "@type" : "@id"
     },
     "versionInfo" : {
       "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "imports" : {
+      "@id" : "http://www.w3.org/2002/07/owl#imports",
+      "@type" : "@id"
     },
     "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "owl" : "http://www.w3.org/2002/07/owl#",
