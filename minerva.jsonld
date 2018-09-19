@@ -2,16 +2,47 @@
   "@graph" : [ {
     "@id" : "https://w3id.org/minerva",
     "@type" : "owl:Ontology",
-    "imports" : "http://www.w3.org/2003/01/geo/wgs84_pos",
     "versionInfo" : "Created with TopBraid Composer"
   }, {
-    "@id" : "minerva:Device",
-    "@type" : "owl:Class",
-    "subClassOf" : "minerva:PhysicalObject"
-  }, {
-    "@id" : "minerva:PhysicalObject",
+    "@id" : "minerva:Domain",
     "@type" : "owl:Class",
     "subClassOf" : "owl:Thing"
+  }, {
+    "@id" : "minerva:EntityType",
+    "@type" : "owl:Class",
+    "subClassOf" : "owl:Thing"
+  }, {
+    "@id" : "minerva:Measurement",
+    "@type" : "owl:Class",
+    "subClassOf" : "owl:Thing"
+  }, {
+    "@id" : "minerva:Node",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:EntityType"
+  }, {
+    "@id" : "minerva:Property",
+    "@type" : "owl:Class",
+    "subClassOf" : "owl:Thing"
+  }, {
+    "@id" : "minerva:domain",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:EntityType",
+    "range" : "minerva:Domain"
+  }, {
+    "@id" : "minerva:hasObject",
+    "@type" : "owl:ObjectProperty"
+  }, {
+    "@id" : "minerva:hasValue",
+    "@type" : "owl:DatatypeProperty",
+    "domain" : "minerva:Measurement"
+  }, {
+    "@id" : "minerva:makesMeasurement",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:EntityType"
+  }, {
+    "@id" : "minerva:measuresProperty",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:EntityType"
   } ],
   "@context" : {
     "subClassOf" : {
@@ -21,8 +52,12 @@
     "versionInfo" : {
       "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
     },
-    "imports" : {
-      "@id" : "http://www.w3.org/2002/07/owl#imports",
+    "range" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#range",
+      "@type" : "@id"
+    },
+    "domain" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
       "@type" : "@id"
     },
     "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
