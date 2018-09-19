@@ -2,6 +2,7 @@
   "@graph" : [ {
     "@id" : "https://w3id.org/minerva",
     "@type" : "owl:Ontology",
+    "imports" : "http://schemas.opengis.net/geosparql/1.0/geosparql_vocab_all.rdf",
     "versionInfo" : "Created with TopBraid Composer"
   }, {
     "@id" : "minerva:Domain",
@@ -10,7 +11,7 @@
   }, {
     "@id" : "minerva:EntityType",
     "@type" : "owl:Class",
-    "subClassOf" : "owl:Thing"
+    "subClassOf" : "http://www.opengis.net/ont/geosparql#Feature"
   }, {
     "@id" : "minerva:Measurement",
     "@type" : "owl:Class",
@@ -21,6 +22,14 @@
     "subClassOf" : "minerva:EntityType"
   }, {
     "@id" : "minerva:Property",
+    "@type" : "owl:Class",
+    "subClassOf" : "owl:Thing"
+  }, {
+    "@id" : "minerva:Scale",
+    "@type" : "owl:Class",
+    "subClassOf" : "owl:Thing"
+  }, {
+    "@id" : "minerva:Unit",
     "@type" : "owl:Class",
     "subClassOf" : "owl:Thing"
   }, {
@@ -43,22 +52,38 @@
     "@id" : "minerva:measuresProperty",
     "@type" : "owl:ObjectProperty",
     "domain" : "minerva:EntityType"
+  }, {
+    "@id" : "minerva:resultTime",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:Measurement"
+  }, {
+    "@id" : "minerva:scale",
+    "@type" : "owl:ObjectProperty",
+    "range" : "minerva:Scale"
+  }, {
+    "@id" : "minerva:unit",
+    "@type" : "owl:ObjectProperty",
+    "range" : "minerva:Unit"
   } ],
   "@context" : {
-    "subClassOf" : {
-      "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+    "domain" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
       "@type" : "@id"
-    },
-    "versionInfo" : {
-      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
     },
     "range" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#range",
       "@type" : "@id"
     },
-    "domain" : {
-      "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subClassOf" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "@type" : "@id"
+    },
+    "imports" : {
+      "@id" : "http://www.w3.org/2002/07/owl#imports",
+      "@type" : "@id"
+    },
+    "versionInfo" : {
+      "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
     },
     "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "owl" : "http://www.w3.org/2002/07/owl#",
