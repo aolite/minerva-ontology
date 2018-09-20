@@ -17,7 +17,7 @@
     "@type" : "owl:Class",
     "subClassOf" : "minerva:SampledFeature"
   }, {
-    "@id" : "minerva:Capacity",
+    "@id" : "minerva:Capability",
     "@type" : "owl:Class",
     "subClassOf" : "owl:Thing"
   }, {
@@ -88,11 +88,11 @@
     "@id" : "minerva:capacities",
     "@type" : "owl:ObjectProperty",
     "domain" : "minerva:EntityType",
-    "range" : "minerva:Capacity"
+    "range" : "minerva:Capability"
   }, {
     "@id" : "minerva:domain",
     "@type" : "owl:ObjectProperty",
-    "domain" : "minerva:Capacity",
+    "domain" : "minerva:Capability",
     "range" : "minerva:Domain"
   }, {
     "@id" : "minerva:hasObject",
@@ -111,7 +111,7 @@
   }, {
     "@id" : "minerva:isAssociatedWith",
     "@type" : "owl:ObjectProperty",
-    "domain" : "minerva:Capacity",
+    "domain" : "minerva:Capability",
     "range" : "minerva:FeatureOfInterest"
   }, {
     "@id" : "minerva:makesMeasurement",
@@ -129,7 +129,7 @@
   }, {
     "@id" : "minerva:providesInteraction",
     "@type" : "owl:ObjectProperty",
-    "domain" : "minerva:Capacity",
+    "domain" : "minerva:Capability",
     "range" : "minerva:Interaction"
   }, {
     "@id" : "minerva:resultTime",
@@ -150,12 +150,12 @@
       "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "@type" : "@id"
     },
-    "range" : {
-      "@id" : "http://www.w3.org/2000/01/rdf-schema#range",
-      "@type" : "@id"
-    },
     "domain" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
+      "@type" : "@id"
+    },
+    "range" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#range",
       "@type" : "@id"
     },
     "versionInfo" : {
