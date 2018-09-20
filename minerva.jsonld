@@ -5,6 +5,22 @@
     "imports" : "http://schemas.opengis.net/geosparql/1.0/geosparql_vocab_all.rdf",
     "versionInfo" : "Created with TopBraid Composer"
   }, {
+    "@id" : "minerva:Action",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:Interaction"
+  }, {
+    "@id" : "minerva:Actuator",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:Device"
+  }, {
+    "@id" : "minerva:Capacity",
+    "@type" : "owl:Class",
+    "subClassOf" : "owl:Thing"
+  }, {
+    "@id" : "minerva:Device",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:Node"
+  }, {
     "@id" : "minerva:Domain",
     "@type" : "owl:Class",
     "subClassOf" : "owl:Thing"
@@ -12,6 +28,18 @@
     "@id" : "minerva:EntityType",
     "@type" : "owl:Class",
     "subClassOf" : "http://www.opengis.net/ont/geosparql#Feature"
+  }, {
+    "@id" : "minerva:Event",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:Interaction"
+  }, {
+    "@id" : "minerva:FeatureOfInterest",
+    "@type" : "owl:Class",
+    "subClassOf" : "http://www.opengis.net/ont/geosparql#Feature"
+  }, {
+    "@id" : "minerva:Interaction",
+    "@type" : "owl:Class",
+    "subClassOf" : "owl:Thing"
   }, {
     "@id" : "minerva:Measurement",
     "@type" : "owl:Class",
@@ -23,27 +51,48 @@
   }, {
     "@id" : "minerva:Property",
     "@type" : "owl:Class",
-    "subClassOf" : "owl:Thing"
+    "subClassOf" : "minerva:Interaction"
   }, {
     "@id" : "minerva:Scale",
     "@type" : "owl:Class",
     "subClassOf" : "owl:Thing"
   }, {
+    "@id" : "minerva:Sensor",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:Device"
+  }, {
     "@id" : "minerva:Unit",
     "@type" : "owl:Class",
     "subClassOf" : "owl:Thing"
   }, {
-    "@id" : "minerva:domain",
+    "@id" : "minerva:capacities",
     "@type" : "owl:ObjectProperty",
     "domain" : "minerva:EntityType",
+    "range" : "minerva:Capacity"
+  }, {
+    "@id" : "minerva:domain",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:Capacity",
     "range" : "minerva:Domain"
   }, {
     "@id" : "minerva:hasObject",
-    "@type" : "owl:ObjectProperty"
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:FeatureOfInterest",
+    "range" : "minerva:FeatureOfInterest"
   }, {
     "@id" : "minerva:hasValue",
     "@type" : "owl:DatatypeProperty",
     "domain" : "minerva:Measurement"
+  }, {
+    "@id" : "minerva:inputData",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:Interaction",
+    "range" : "minerva:Measurement"
+  }, {
+    "@id" : "minerva:isAssociatedWith",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:Capacity",
+    "range" : "minerva:FeatureOfInterest"
   }, {
     "@id" : "minerva:makesMeasurement",
     "@type" : "owl:ObjectProperty",
@@ -53,9 +102,20 @@
     "@type" : "owl:ObjectProperty",
     "domain" : "minerva:EntityType"
   }, {
+    "@id" : "minerva:outputData",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:Interaction",
+    "range" : "minerva:Measurement"
+  }, {
+    "@id" : "minerva:providesInteraction",
+    "@type" : "owl:ObjectProperty",
+    "domain" : "minerva:Capacity",
+    "range" : "minerva:Interaction"
+  }, {
     "@id" : "minerva:resultTime",
     "@type" : "owl:ObjectProperty",
-    "domain" : "minerva:Measurement"
+    "domain" : "minerva:Measurement",
+    "range" : "xsd:dateTimeStamp"
   }, {
     "@id" : "minerva:scale",
     "@type" : "owl:ObjectProperty",
@@ -66,24 +126,24 @@
     "range" : "minerva:Unit"
   } ],
   "@context" : {
-    "domain" : {
-      "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
+    "subClassOf" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
       "@type" : "@id"
     },
     "range" : {
       "@id" : "http://www.w3.org/2000/01/rdf-schema#range",
       "@type" : "@id"
     },
-    "subClassOf" : {
-      "@id" : "http://www.w3.org/2000/01/rdf-schema#subClassOf",
-      "@type" : "@id"
-    },
-    "imports" : {
-      "@id" : "http://www.w3.org/2002/07/owl#imports",
+    "domain" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
       "@type" : "@id"
     },
     "versionInfo" : {
       "@id" : "http://www.w3.org/2002/07/owl#versionInfo"
+    },
+    "imports" : {
+      "@id" : "http://www.w3.org/2002/07/owl#imports",
+      "@type" : "@id"
     },
     "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "owl" : "http://www.w3.org/2002/07/owl#",
