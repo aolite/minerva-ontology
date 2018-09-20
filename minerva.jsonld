@@ -13,9 +13,17 @@
     "@type" : "owl:Class",
     "subClassOf" : "minerva:Device"
   }, {
+    "@id" : "minerva:Artifacts",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:SampledFeature"
+  }, {
     "@id" : "minerva:Capacity",
     "@type" : "owl:Class",
     "subClassOf" : "owl:Thing"
+  }, {
+    "@id" : "minerva:Database",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:Node"
   }, {
     "@id" : "minerva:Device",
     "@type" : "owl:Class",
@@ -27,7 +35,7 @@
   }, {
     "@id" : "minerva:EntityType",
     "@type" : "owl:Class",
-    "subClassOf" : "http://www.opengis.net/ont/geosparql#Feature"
+    "subClassOf" : "minerva:Artifacts"
   }, {
     "@id" : "minerva:Event",
     "@type" : "owl:Class",
@@ -49,9 +57,17 @@
     "@type" : "owl:Class",
     "subClassOf" : "minerva:EntityType"
   }, {
+    "@id" : "minerva:Place",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:SampledFeature"
+  }, {
     "@id" : "minerva:Property",
     "@type" : "owl:Class",
     "subClassOf" : "minerva:Interaction"
+  }, {
+    "@id" : "minerva:SampledFeature",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:FeatureOfInterest"
   }, {
     "@id" : "minerva:Scale",
     "@type" : "owl:Class",
@@ -60,6 +76,10 @@
     "@id" : "minerva:Sensor",
     "@type" : "owl:Class",
     "subClassOf" : "minerva:Device"
+  }, {
+    "@id" : "minerva:Site",
+    "@type" : "owl:Class",
+    "subClassOf" : "minerva:Place"
   }, {
     "@id" : "minerva:Unit",
     "@type" : "owl:Class",
